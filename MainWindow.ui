@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1200</width>
+    <height>800</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Phân Tích Dữ Liệu Cổ Phiếu</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QPushButton" name="loadButton">
+        <property name="text">
+         <string>Tải File CSV</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLabel" name="fileLabel">
+        <property name="text">
+         <string>Chưa tải file nào</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="overviewTab">
+       <attribute name="title">
+        <string>Tổng Quan</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_2">
+        <item>
+         <widget class="QGroupBox" name="infoGroupBox">
+          <property name="title">
+           <string>Thông Tin Tổng Quan</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_3">
+           <item>
+            <widget class="QLabel" name="statsLabel">
+             <property name="text">
+              <string>Vui lòng tải file dữ liệu để xem thông tin tổng quan.</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="dataGroupBox">
+          <property name="title">
+           <string>Dữ Liệu Cổ Phiếu</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_4">
+           <item>
+            <widget class="QTableView" name="tableView"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="filterCloseTab">
+       <attribute name="title">
+        <string>Lọc Theo Giá Close</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="text">
+             <string>Giá Close từ:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="minCloseInput"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_2">
+            <property name="text">
+             <string>đến</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="maxCloseInput"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="filterCloseButton">
+            <property name="text">
+             <string>Lọc Dữ Liệu</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="resultGroupBox">
+          <property name="title">
+           <string>Kết Quả Lọc</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QTableView" name="filterCloseTable"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="filterCloseStats">
+             <property name="text">
+              <string>Chưa có dữ liệu</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="filterHighLowTab">
+       <attribute name="title">
+        <string>Trích Lọc High-Low</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_7">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <widget class="QLabel" name="label_3">
+            <property name="text">
+             <string>Giá Low từ:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="minLowInput"/>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_4">
+            <property name="text">
+             <string>đến</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="maxLowInput"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="filterLowButton">
+            <property name="text">
+             <string>Trích Lọc Dữ Liệu</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="resultGroupBox_2">
+          <property name="title">
+           <string>Kết Quả Trích Lọc</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QTableView" name="filterLowTable"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="filterLowStats">
+             <property name="text">
+              <string>Chưa có dữ liệu</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="specificDateTab">
+       <attribute name="title">
+        <string>Thông Tin Ngày Cụ Thể</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_9">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <widget class="QLabel" name="label_5">
+            <property name="text">
+             <string>Ngày giao dịch (YYYY-MM-DD):</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="dateInput"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="searchDateButton">
+            <property name="text">
+             <string>Tìm Kiếm</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="resultGroupBox_3">
+          <property name="title">
+           <string>Thông Tin Giao Dịch</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_10">
+           <item>
+            <widget class="QTableView" name="dateInfoTable"/>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="multiDateTab">
+       <attribute name="title">
+        <string>Lọc Theo Nhiều Ngày</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_11">
+        <item>
+         <layout class="QVBoxLayout" name="verticalLayout_12">
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="text">
+             <string>Nhập danh sách các ngày (YYYY-MM-DD), cách nhau bằng dấu phẩy:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QLineEdit" name="datesInput"/>
+          </item>
+          <item>
+           <widget class="QPushButton" name="searchDatesButton">
+            <property name="text">
+             <string>Tìm Kiếm</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="resultGroupBox_4">
+          <property name="title">
+           <string>Kết Quả Tìm Kiếm</string>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_13">
+           <item>
+            <widget class="QTableView" name="multiDateTable"/>
+           </item>
+           <item>
+            <widget class="QLabel" name="multiDateStats">
+             <property name="text">
+              <string>Chưa có dữ liệu</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="advancedTab">
+       <attribute name="title">
+        <string>Phân Tích Nâng Cao</string>
+       </attribute>
+       <layout class="QVBoxLayout" name="verticalLayout_14">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_5">
+          <item>
+           <widget class="QLabel" name="label_7">
+            <property name="text">
+             <string>Loại biểu đồ:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QComboBox" name="chartTypeCombo">
+            <item>
+             <property name="text">
+              <string>Line Chart</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Candlestick Chart</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Volume Chart</string>
+             </property>
+            </item>
+            <item>
+             <property name="text">
+              <string>Moving Average</string>
+             </property>
+            </item>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="generateChartButton">
+            <property name="text">
+             <string>Tạo Biểu Đồ</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <widget class="QGroupBox" name="chartGroupBox">
+          <property name="title">
+           <string>Biểu Đồ</string>
+          </property>
+          <layout class="QVBoxLayout" name="chartLayout"/>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1200</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionSave_Results"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionOpen">
+   <property name="text">
+    <string>Open CSV...</string>
+   </property>
+  </action>
+  <action name="actionSave_Results">
+   <property name="text">
+    <string>Save Results...</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Exit</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
